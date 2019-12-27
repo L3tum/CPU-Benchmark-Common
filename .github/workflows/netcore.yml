@@ -1,0 +1,27 @@
+  
+name: .NET Core CI
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    name: Dotnet build and push
+    steps:
+      - uses: actions/checkout@v1
+      - run: echo $(date "+%Y.%-m.%-d") > ./version
+      - run: echo ${{ github.ref }} > ./version && sed -ie 's/refs\/tags\///' ./version
+        if: startsWith(github.ref, 'refs/tags/')
+      - name: Build
+        run: dotnet pack -c Release --include-symbols -p:PackageVersion=$(cat ./version) --output nupkgs "./CPU-Benchmark-Common.sln"
+      - name: Nuget release
+        if: startsWith(github.ref, 'refs/tags/')
+        run: dotnet nuget push nupkgs/CPU-Benchmark-Common.$(cat ./version).nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
+        
+      - name: GPR-Hack
+        if: startsWith(github.ref, 'refs/tags/')
+        run: |
+           for f in ./nupkgs/*.nupkg
+           do
+             curl -vX PUT -u "L3tum:${{ secrets.GITHUB_TOKEN }}" -F package=@$f https://nuget.pkg.github.com/L3tum/
+           done
