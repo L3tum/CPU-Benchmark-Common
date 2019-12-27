@@ -13,7 +13,9 @@ jobs:
       - run: echo ${{ github.ref }} > ./version && sed -ie 's/refs\/tags\///' ./version
         if: startsWith(github.ref, 'refs/tags/')
       - name: Build
-        run: dotnet pack -c Release --include-symbols -p:PackageVersion=$(cat ./version) --output nupkgs "./CPU-Benchmark-Common.sln"
+        run: |
+          dotnet build -c Release ./CPU-Benchmark-Common.sln
+          dotnet pack -c Release --include-symbols -p:PackageVersion=$(cat ./version) --output nupkgs "./CPU-Benchmark-Common.sln"
       - name: Nuget release
         if: startsWith(github.ref, 'refs/tags/')
         run: dotnet nuget push nupkgs/CPU-Benchmark-Common.$(cat ./version).nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
