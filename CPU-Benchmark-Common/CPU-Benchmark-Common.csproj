@@ -12,9 +12,14 @@
     <AssemblyOriginatorKeyFile>sgKey.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>$(ProjectDir)CPU-Benchmark-Common.xml</DocumentationFile>
+  </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="HardwareInformation" Version="3.0.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Reinforced.Typings" Version="1.5.6" />
   </ItemGroup>
 
   <ItemGroup>

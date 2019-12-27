@@ -3,24 +3,26 @@
 using System;
 using System.Collections.Generic;
 using HardwareInformation;
+using Reinforced.Typings.Attributes;
 
 #endregion
 
 namespace CPU_Benchmark_Common
 {
+	[TsClass]
 	public class Save
 	{
-		public string DotNetVersion;
-		public MachineInformation MachineInformation;
-		public Dictionary<uint, List<Result>> Results;
-		public long Uploaded;
-		public string UUID;
-		public Version Version;
-
 		public Save()
 		{
 			Results = new Dictionary<uint, List<Result>>();
 			Uploaded = 0;
 		}
+
+		public string DotNetVersion { get; set; }
+		public MachineInformation MachineInformation { get; set; }
+		public Dictionary<uint, List<Result>> Results { get; set; }
+		public long Uploaded { get; set; }
+		public string UUID { get; set; }
+		public Version Version { get; set; }
 	}
 }

@@ -1,5 +1,12 @@
-﻿namespace CPU_Benchmark_Common
+﻿#region using
+
+using Reinforced.Typings.Attributes;
+
+#endregion
+
+namespace CPU_Benchmark_Common
 {
+	[TsClass]
 	public class UploadedResponse
 	{
 		public string UUID { get; set; }
