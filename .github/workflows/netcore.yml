@@ -36,7 +36,7 @@ jobs:
       - run: |
           mkdir package
           cd CPU-Benchmark-Common/Scripts
-          cp ./* ../../package/
+          cp -r ./* ../../package/
           cd ..
           cp package.template.json ../package/package.json
       - run: cd package && npm publish
