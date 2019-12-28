@@ -61,11 +61,11 @@ jobs:
           scope: '@l3tum'
         #if: startsWith(github.ref, 'refs/tags/')
       - run: |
+          cd package
           echo _auth=${{secrets.GITHUB_TOKEN}} >> .npmrc
           echo email=${{secrets.email}} >> .npmrc
           echo always-auth=true >> .npmrc
           echo registry=https://npm.pkg.github.com/L3tum >> .npmrc
-          cd package
           npm publish --access public
           rm .npmrc
         #if: startsWith(github.ref, 'refs/tags/')
