@@ -19,6 +19,8 @@ namespace CPU_Benchmark_Common
 		}
 
 		public string DotNetVersion { get; set; }
+
+		[TsProperty(Type = "MachineInformation")]
 		public MachineInformation MachineInformation { get; set; }
 		public Dictionary<uint, List<Result>> Results { get; set; }
 		public long Uploaded { get; set; }

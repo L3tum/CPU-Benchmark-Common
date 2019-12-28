@@ -17,9 +17,11 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="HardwareInformation" Version="3.0.0" />
+    <PackageReference Include="HardwareInformation" Version="3.0.3" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
-    <PackageReference Include="Reinforced.Typings" Version="1.5.6" />
+    <PackageReference Include="Reinforced.Typings" Version="1.5.6">
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
   </ItemGroup>
 
   <ItemGroup>

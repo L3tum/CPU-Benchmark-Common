@@ -2,12 +2,13 @@
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
 
+import { MachineInformation } from '@l3tum/hardwareinformation/HardwareInformation/MachineInformation';
 import { Result } from './Result';
 
 export class Save
 {
 	public DotNetVersion: string;
-	public MachineInformation: any;
+	public MachineInformation: MachineInformation;
 	public Results: { [key:number]: Result[] };
 	public Uploaded: number;
 	public UUID: string;

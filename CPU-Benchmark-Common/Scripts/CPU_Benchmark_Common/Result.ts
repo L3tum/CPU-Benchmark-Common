@@ -2,6 +2,8 @@
 //     Changes to this file may cause incorrect behavior and will be lost if
 //     the code is regenerated.
 
+import { MachineInformation } from '@l3tum/hardwareinformation/HardwareInformation/MachineInformation';
+
 export class Result
 {
 	public Benchmark: string;
