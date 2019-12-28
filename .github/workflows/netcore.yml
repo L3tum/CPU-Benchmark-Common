@@ -44,7 +44,7 @@ jobs:
           cd ../package
           npm version --no-git-tag-version $(npm view @letum/cpu-benchmark-common@latest version)
       - env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
         run: |
           cd package 
           npm publish --access public
