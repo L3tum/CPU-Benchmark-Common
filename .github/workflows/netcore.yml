@@ -46,8 +46,8 @@ jobs:
       - run: |
           cd package 
           rm .npmrc
-          echo _auth=${{secret.npm_token}} >> .npmrc
-          echo email=${{secret.email}} >> .npmrc
+          echo _auth=${{secrets.npm_token}} >> .npmrc
+          echo email=${{secrets.email}} >> .npmrc
           echo always-auth=true >> .npmrc
           npm publish
           rm .npmrc
@@ -61,7 +61,7 @@ jobs:
       - run: |
           rm .npmrc
           echo _auth=${{secrets.GITHUB_TOKEN}} >> .npmrc
-          echo email=${{secret.email}} >> .npmrc
+          echo email=${{secrets.email}} >> .npmrc
           echo always-auth=true >> .npmrc
           cd package
           npm publish
