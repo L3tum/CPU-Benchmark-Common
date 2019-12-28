@@ -9,7 +9,7 @@ using Reinforced.Typings.Attributes;
 
 namespace CPU_Benchmark_Common
 {
-	[TsClass]
+	[TsInterface(AutoI = false)]
 	public class Save
 	{
 		public Save()

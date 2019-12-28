@@ -4,5 +4,5 @@ using Reinforced.Typings.Attributes;
 
 #endregion
 
-[assembly: TsGlobal(GenerateDocumentation = true, UseModules = true, DiscardNamespacesWhenUsingModules = true)]
-[assembly: TsImport(ImportRequire = false, ImportSource = "@l3tum/hardwareinformation/HardwareInformation/MachineInformation", ImportTarget = "{ MachineInformation }")]
+[assembly: TsGlobal(GenerateDocumentation = true, DiscardNamespacesWhenUsingModules = true, ExportPureTypings = true)]
+[assembly: TsReference("@l3tum/hardwareinformation")]

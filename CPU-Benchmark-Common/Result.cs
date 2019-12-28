@@ -7,7 +7,7 @@ using Reinforced.Typings.Attributes;
 
 namespace CPU_Benchmark_Common
 {
-	[TsClass]
+	[TsInterface(AutoI = false)]
 	public class Result
 	{
 		public Result(string benchmark, double timing, double points, double referenceTiming, double referencePoints,

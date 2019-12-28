@@ -2,6 +2,7 @@
   "name": "@l3tum/cpu-benchmark-common",
   "author": "L3tum",
   "version": "1.0.0",
+  "types": "index.d.ts",
   "dependencies": {
     "@l3tum/hardwareinformation": "^3.0.0"
   }

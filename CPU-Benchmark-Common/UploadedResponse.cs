@@ -6,7 +6,7 @@ using Reinforced.Typings.Attributes;
 
 namespace CPU_Benchmark_Common
 {
-	[TsClass]
+	[TsInterface(AutoI = false)]
 	public class UploadedResponse
 	{
 		public string UUID { get; set; }
