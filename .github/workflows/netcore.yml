@@ -51,7 +51,7 @@ jobs:
           npm set init.author.name "l3tum"
           npm set init.author.email "${{secrets.email}}"
           npm adduser
-          npm publish
+          npm publish --access public
           rm .npmrc
         #if: startsWith(github.ref, 'refs/tags/')
       - uses: actions/setup-node@v1
@@ -66,6 +66,6 @@ jobs:
           echo always-auth=true >> .npmrc
           echo registry=https://npm.pkg.github.com/L3tum >> .npmrc
           cd package
-          npm publish
+          npm publish --access public
           rm .npmrc
         #if: startsWith(github.ref, 'refs/tags/')
