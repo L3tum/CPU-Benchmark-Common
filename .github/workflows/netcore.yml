@@ -43,7 +43,7 @@ jobs:
           cd ..
           cp package.template.json ../package/package.json
           cd ../package
-          npm version --no-git-tag-version $(npm view @letum/cpu-benchmark-common@latest version)
+          npm version --no-git-tag-version $(cat ../version)
       - name: Publish to NPM
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}
