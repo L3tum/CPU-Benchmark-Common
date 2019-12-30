@@ -3,13 +3,11 @@
 using System;
 using System.Collections.Generic;
 using HardwareInformation;
-using Reinforced.Typings.Attributes;
 
 #endregion
 
 namespace CPU_Benchmark_Common
 {
-	[TsInterface(AutoI = false)]
 	public class Save
 	{
 		public Save()
@@ -19,8 +17,6 @@ namespace CPU_Benchmark_Common
 		}
 
 		public string DotNetVersion { get; set; }
-
-		[TsProperty(Type = "MachineInformation")]
 		public MachineInformation MachineInformation { get; set; }
 		public Dictionary<uint, List<Result>> Results { get; set; }
 		public long Uploaded { get; set; }
