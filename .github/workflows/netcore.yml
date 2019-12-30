@@ -40,8 +40,9 @@ jobs:
       - name: Setup node package
         if: startsWith(github.ref, 'refs/tags/')
         run: |
+          dotnet build -c Release CPU-Benchmark-Common.Typings/CPU-Benchmark-Common.Typings.csproj
           mkdir package
-          cd CPU-Benchmark-Common/Scripts
+          cd CPU-Benchmark-Common.Typings/Scripts
           cp -r ./* ../../package/
           cd ..
           cp package.template.json ../package/package.json
