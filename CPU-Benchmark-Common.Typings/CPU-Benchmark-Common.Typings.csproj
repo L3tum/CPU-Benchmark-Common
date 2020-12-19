@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp5.0</TargetFramework>
     <RootNamespace>CPU_Benchmark_Common.Typings</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Reinforced.Typings" Version="1.5.6" />
+    <PackageReference Include="Reinforced.Typings" Version="1.5.9" />
   </ItemGroup>
 
   <ItemGroup>

@@ -1,5 +1,7 @@
 ﻿#region using
 
+using System.Collections;
+using System.Collections.Generic;
 using Newtonsoft.Json;
 
 #endregion
@@ -15,18 +17,19 @@ namespace CPU_Benchmark_Common
 	    ///     Constructor
 	    /// </summary>
 	    /// <param name="benchmark"></param>
-	    /// <param name="timing"></param>
+	    /// <param name="iterations"></param>
 	    /// <param name="points"></param>
-	    /// <param name="referenceTiming"></param>
+	    /// <param name="referenceIterations"></param>
 	    /// <param name="referencePoints"></param>
 	    /// <param name="dataThroughput"></param>
-	    public Result(string benchmark, double timing, double points, double referenceTiming, double referencePoints,
+	    public Result(string benchmark, ulong iterations, double points, ulong referenceIterations,
+            double referencePoints,
             double dataThroughput)
         {
             Benchmark = benchmark;
-            Timing = timing;
+            Iterations = iterations;
             Points = points;
-            ReferenceTiming = referenceTiming;
+            ReferenceIterations = referenceIterations;
             ReferencePoints = referencePoints;
             DataThroughput = dataThroughput;
         }
@@ -59,7 +62,7 @@ namespace CPU_Benchmark_Common
 	    ///     Time spent on the benchmark by the reference CPU, in ms
 	    /// </summary>
 	    [JsonIgnore]
-        public double ReferenceTiming { get; set; }
+        public ulong ReferenceIterations { get; set; }
 
 	    /// <summary>
 	    ///     Approximate data throughput achieved
@@ -70,6 +73,19 @@ namespace CPU_Benchmark_Common
 	    /// <summary>
 	    ///     Time spent on the benchmark, in ms
 	    /// </summary>
-	    public double Timing { get; set; }
+	    public ulong Iterations { get; set; }
+
+	    /// <summary>
+	    ///     The cores the benchmark was run on
+	    /// </summary>
+	    public BitArray CoreId { get; set; }
+
+	    /// <summary>
+	    ///     The frequencies achieved during the run
+	    /// </summary>
+	    public Dictionary<ulong, FrequencyPerCore> Frequencies { get; set; }
+
+        public record FrequencyPerCore(int BaseFrequency, int AverageFrequency, int HighestFrequency,
+            int LowestFrequency);
     }
 }
