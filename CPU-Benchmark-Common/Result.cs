@@ -85,7 +85,12 @@ namespace CPU_Benchmark_Common
 	    /// </summary>
 	    public Dictionary<ulong, FrequencyPerCore> Frequencies { get; set; }
 
-        public record FrequencyPerCore(int BaseFrequency, int AverageFrequency, int HighestFrequency,
-            int LowestFrequency);
+        public sealed class FrequencyPerCore
+        {
+            public int BaseFrequency { get; set; }
+            public int AverageFrequency { get; set; }
+            public int HighestFrequency { get; set; }
+            public int LowestFrequency { get; set; }
+        }
     }
 }

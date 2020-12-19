@@ -4,6 +4,6 @@
   "version": "1.0.0",
   "types": "index.d.ts",
   "dependencies": {
-    "@l3tum/hardwareinformation": "^3.0.0"
+    "@l3tum/hardwareinformation": "^5.0.0"
   }
 }
